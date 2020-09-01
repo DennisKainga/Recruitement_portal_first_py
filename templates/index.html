@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="To be filled">
+    <meta name="keywords" content="To be filled">
+    <meta name="author" content="Dennis Kainga">
+    <title>Human Resource HomePage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style2.css') }}" )/>
+</head>
+
+<body class="bc">
+    <header>
+        <div class="container2">
+            <div id="branding">
+                <h1><span class="highlight">HR</span> web Design</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="/application">Application</a></li>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Log In</button>
+                        <div class="dropdown-content">
+                            <a href="/admin">Admin</a>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="showcase">
+        <div class="container2">
+            <h1>WELCOME! TO THE HUMAN RESOURCE HOME PAGE</h1>
+            <p class="info">
+                LETS GO DIGITAL!!
+            </p>
+        </div>
+    </section>
+    <section id="newsletter">
+        <div class="container2">
+            <h3>Subscribe To Our NewsLetter</h3>
+            <form action="">
+                <input type="email" placeholder="ENTER EMAIL HERE......">
+                <button type="submit" class="button_1">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <section id="boxes">
+        <div class="container2">
+            <div class="box">
+                <img src="../static/img/avatar.jpg" alt="ADD IMAGE">
+                <h3>HTML5 MARKUP</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ut. Animi, magni expedita sed eligendi veritatis deleniti tenetur illo eius eos explicabo, sit aliquid porro officiis perferendis neque. Eius, aspernatur!</p>
+            </div>
+            <div class="box">
+                <img src="../static/img/avatar.jpg" alt="ADD IMAGE">
+                <h3>HTML5 MARKUP</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ut. Animi, magni expedita sed eligendi veritatis deleniti tenetur illo eius eos explicabo, sit aliquid porro officiis perferendis neque. Eius, aspernatur!</p>
+            </div>
+            <div class="box">
+                <img src="../static/img/avatar.jpg" alt="ADD IMAGE">
+                <h3>HTML5 MARKUP</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ut. Animi, magni expedita sed eligendi veritatis deleniti tenetur illo eius eos explicabo, sit aliquid porro officiis perferendis neque. Eius, aspernatur!</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Kainga Web Design, Copyright &copy; 2020</p>
+    </footer>
+</body>
+
+</html>

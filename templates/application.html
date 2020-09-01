@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style2.css') }}" )/>
+</head>
+
+<body class="bc2">
+    <header>
+        <div class="container2">
+            <div id="branding">
+                <h1><span class="highlight">KAINGA</span> web Design</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="/application">Application</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container2">
+        <h3>APPLICATION FORM</h3>
+    </div>
+    <div class="application">
+        <form method="POST" action="" class="my-form" enctype="multipart/form-data">
+            <div class='form'> <label>First Name</label>
+                <input type="text" name="firstName" placeholder="Enter First Name here" required></input>
+            </div>
+            <div class='form'>
+                <label>Last Name</label>
+                <input type="text" name="lastName" placeholder="Enter Last Name here" required></input>
+            </div>
+            <div class='form'>
+                <label>Marital Status</label>
+                <input type="text" name="marital" placeholder="Enter Marital Status here" required></input>
+            </div>
+            <div class='form'>
+                <label>Current Residence</label>
+                <input type="text" name="residence" required placeholder="Enter Current Residence"></input>
+            </div>
+            <div class='form'>
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="Enter E-mail here" required></input>
+            </div>
+            <div class='form'>
+                <label>Phone</label>
+                <input type="tel" name="phoneNumber" placeholder="Enter Phone Number here" value="+254" required></input>
+            </div>
+            <div class='form'>
+                <label>Date Of Birth</label>
+                <input type="date" name="birth" placeholder="Date Of Birth" required>
+            </div>
+            <div class='form'>
+                <label>Applying For</label>
+                <input type="text" name="position" placeholder="Applying For" required>
+            </div>
+            <div class='form'>
+                <label>Select Level Of Education</label>
+                <select name="education">
+            <option value="Diploma">Diploma</option>
+            <option value="Degree">Degree</option>
+            <option value="Cert">Certificate</option>
+        </select>
+            </div>
+
+            <div class='form'>
+                <label>How Did You Learn About The position?</label>
+                <select name="means">
+            <option value="linkedin">LinkedIN</option>
+            <option value="facebook">Facebook</option>
+            <option value="website">Website</option>
+        </select>
+            </div>
+            <div class='form'>
+                <label>Experience in Years</label>
+                <input type="number" name="experience" placeholder="Select Years" value="3">
+            </div>
+            <div class='form'>
+                <label>Experience in months</label>
+                <input type="number" name="experience" placeholder="Select Years" required value="3 months">
+                <div class='form'>
+                    <label>Additional Trainings</label>
+                    <input type="text" name="trainings" placeholder="Enter Additional trainings here" required></input>
+                </div>
+                <div class="form">
+                    <label>Upload CV</label>
+                    <input type="file" name="file" required/>
+                </div>
+                <div>
+                    <input type="submit" class="button_1">
+                </div>
+        </form>
+        </div>
+</body>
+
+</html>

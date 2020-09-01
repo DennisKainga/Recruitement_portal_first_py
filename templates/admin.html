@@ -1,0 +1,200 @@
+<form method="POST">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style2.css') }}" )/>
+    <link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet"> {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col md-12">
+                <h2>Applicants Data <button type="button" class="btn btn-success  pull-right" data-toggle="modal" data-target="#myModal">Add Applicant Data</button></h2>
+                {%with messages = get_flashed_messages()%} {%if messages%} {% for message in messages %}
+                <div class="alert alert-success alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                 <span aria-hidden="true">&times;</span>
+                   </button> {{message}}
+                </div>
+                {%endfor%} {%endif%} {%endwith%}
+                <table class="table table-striped">
+                    <tr>
+                        <th>Action</th>
+                        <th></th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Position</th>
+                        <th>E-mail</th>
+                        <th>Phone Number</th>
+                        <th>Date Of Birth</th>
+                        <th>Education</th>
+                        <th>Means</th>
+                        <th>Marital Status</th>
+                        <th>Trainings</th>
+                        <th>Residence</th>
+                        <th>Experience</th>
+                        <th>CV</th>
+                    </tr>
+                    {% for row in applicants %}
+                    <tr>
+                        <td><a href="/update/{{row.0}}" class="btn btn-warning btn-xl" method='POST' data-toggle="modal" data-target="#modaledit{{row.0}}">Edit</a></td>
+                        <td><a href="/delete/{{ row.0 }}" class="btn btn-danger btn-xl" method='POST' onclick="return confirm('Are You Sure For Delete?')">Delete</a></td>
+                        <td>{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                        <td>{{row.2}}</td>
+                        <td>{{row.3}}</td>
+                        <td>{{row.4}}</td>
+                        <td>{{row.5}}</td>
+                        <td>{{row.6}}</td>
+                        <td>{{row.7}}</td>
+                        <td>{{row.8}}</td>
+                        <td>{{row.9}}</td>
+                        <td>{{row.10}}</td>
+                        <td>{{row.11}}</td>
+                        <td>{{row.12}}</td>
+                        <td>{{row.13}}</td>
+                    </tr>
+                    <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Update Information</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ url_for('update') }}" method="POST">
+                                        <div class="form-group">
+                                            <label>First Name:</label>
+                                            <input type="hidden" name="id" value="{{row.0}}">
+                                            <input type="text" class="form-control" name="firstName" value="{{row.1}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Last Name:</label>
+                                            <input type="text" class="form-control" name="lastName" value="{{row.2}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Postion:</label>
+                                            <input type="text" class="form-control" name="position" value="{{row.3}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>E-mail:</label>
+                                            <input type="text" class="form-control" name="email" value="{{row.4}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Phone Number:</label>
+                                            <input type="text" class="form-control" name="phoneNumber" value="{{row.5}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Date OF Birth:</label>
+                                            <input type="text" class="form-control" name="birth" value="{{row.6}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Education:</label>
+                                            <input type="text" class="form-control" name="education" value="{{row.7}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Means:</label>
+                                            <input type="text" class="form-control" name="means" value="{{row.8}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Marital Status:</label>
+                                            <input type="text" class="form-control" name="marital" value="{{row.9}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Trainings:</label>
+                                            <input type="text" class="form-control" name="trainings" value="{{row.10}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Residence:</label>
+                                            <input type="text" class="form-control" name="residence" value="{{row.11}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Experience</label>
+                                            <input type="text" class="form-control" name="experience" value="{{row.12}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" type="sbumit">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Please Insert Data</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ url_for('insert') }}" method="POST">
+                                <div class="form-group">
+                                    <label>First Name:</label>
+                                    <input type="text" class="form-control" name="firstName" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name:</label>
+                                    <input type="text" class="form-control" name="lastName" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Position:</label>
+                                    <input type="text" class="form-control" name="position" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>E- mail</label>
+                                    <input type="text" class="form-control" name="email" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="text" class="form-control" name="phoneNumber" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date Of Birth</label>
+                                    <input type="text" class="form-control" name="birth" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Education</label>
+                                    <input type="text" class="form-control" name="education" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Means</label>
+                                    <input type="text" class="form-control" name="means" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Marital Status</label>
+                                    <input type="text" class="form-control" name="marital" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Trainings</label>
+                                    <input type="text" class="form-control" name="trainings" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Residence</label>
+                                    <input type="text" class="form-control" name="residence" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Experience</label>
+                                    <input type="text" class="form-control" name="experience" required="1">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="submit">Insert Data</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+</form>
